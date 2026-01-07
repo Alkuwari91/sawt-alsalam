@@ -14,9 +14,9 @@ inject_global_css()
 st.markdown(
     """
 <div class="hero">
-  <div class="hero-title">يوم التعليم العالمي</div>
+  <div class="hero-title">اليوم العالمي للتضامن مع فلسطين</div>
   <div class="hero-sub">صوت السلام | مدرسة آمنة محمود الجيدة</div>
-  <div class="hero-tag">24 يناير – التعليم حق… ويصنع المستقبل</div>
+  <div class="hero-tag">29 نوفمبر – التعليم حق… ويصنع المستقبل</div>
 </div>
 """,
     unsafe_allow_html=True,
@@ -64,9 +64,9 @@ with col3:
     with st.container():
         st.markdown('<div class="card">', unsafe_allow_html=True)
         st.markdown('<div class="sec">معرض الصور</div>', unsafe_allow_html=True)
-        st.caption("صور من GitHub داخل: assets/yawm/photos (أو ارفعي صور للعرض المؤقت)")
+        st.caption("صور من GitHub داخل: assets/tadamon/photos (أو ارفعي صور للعرض المؤقت)")
 
-        photos_dir = Path("assets/yawm/photos")
+        photos_dir = Path("assets/tadamon/photos")
 
         photos = []
         if photos_dir.exists():
@@ -78,14 +78,14 @@ with col3:
         if photos:
             st.image([str(p) for p in photos], use_container_width=True)
         else:
-            st.info("مافي صور مضافة بعد داخل assets/yawm/photos")
+            st.info("مافي صور مضافة بعد داخل assets/tadamon/photos")
 
         st.divider()
         uploaded = st.file_uploader(
             "رفع صور للعرض (مؤقت)",
             type=["png", "jpg", "jpeg", "webp"],
             accept_multiple_files=True,
-            key="yawm_photos_upload",
+            key="tadamon_photos_upload",
         )
         if uploaded:
             st.image(uploaded, use_container_width=True)
