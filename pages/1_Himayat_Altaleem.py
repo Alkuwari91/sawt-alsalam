@@ -66,7 +66,7 @@ with col3:
         st.markdown('<div class="sec">معرض الصور</div>', unsafe_allow_html=True)
         st.caption("صور من GitHub داخل: assets/yawm/photos (أو ارفعي صور للعرض المؤقت)")
 
-        photos_dir = Path("assets/yawm/photos")
+        photos_dir = Path("assets/himayat/photos")
 
         photos = []
         if photos_dir.exists():
@@ -85,7 +85,7 @@ with col3:
             "رفع صور للعرض (مؤقت)",
             type=["png", "jpg", "jpeg", "webp"],
             accept_multiple_files=True,
-            key="yawm_photos_upload",
+            key="himayat_photos_upload",
         )
         if uploaded:
             st.image(uploaded, use_container_width=True)
