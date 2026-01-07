@@ -3,7 +3,7 @@ from pathlib import Path
 from styles import inject_global_css
 
 st.set_page_config(
-    page_title="يوم التعليم العالمي | صوت السلام",
+    page_title="اليوم العالمي للتضامن مع فلسطين | صوت السلام",
     layout="wide",
     initial_sidebar_state="collapsed",
 )
@@ -64,7 +64,6 @@ with col3:
     with st.container():
         st.markdown('<div class="card">', unsafe_allow_html=True)
         st.markdown('<div class="sec">معرض الصور</div>', unsafe_allow_html=True)
-        st.caption("صور من GitHub داخل: assets/tadamon/photos (أو ارفعي صور للعرض المؤقت)")
 
         photos_dir = Path("assets/tadamon/photos")
 
@@ -75,20 +74,6 @@ with col3:
 
         photos = sorted(photos)
 
-        if photos:
-            st.image([str(p) for p in photos], use_container_width=True)
-        else:
-            st.info("مافي صور مضافة بعد داخل assets/tadamon/photos")
-
-        st.divider()
-        uploaded = st.file_uploader(
-            "رفع صور للعرض (مؤقت)",
-            type=["png", "jpg", "jpeg", "webp"],
-            accept_multiple_files=True,
-            key="tadamon_photos_upload",
-        )
-        if uploaded:
-            st.image(uploaded, use_container_width=True)
 
         st.markdown("</div>", unsafe_allow_html=True)
 
