@@ -12,7 +12,8 @@ st.set_page_config(
 # =========================
 # GLOBAL CSS (RASEKHON STYLE)
 # =========================
-st.markdown("""
+st.markdown(
+    """
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap');
 
@@ -35,19 +36,19 @@ body {
 .hero {
     background: linear-gradient(135deg, #8A1538, #6E0F2C);
     color: white;
-    padding: 2.5em 1em;
+    padding: 2.6em 1em;
     text-align: center;
-    margin: -1.5rem -1rem 2rem -1rem;
+    margin: -1.5rem -1rem 2.2rem -1rem;
 }
 
 .hero-title {
-    font-size: 2.7em;
+    font-size: 2.8em;
     font-weight: 800;
     margin: 0;
 }
 
 .hero-sub {
-    font-size: 1.2em;
+    font-size: 1.25em;
     margin-top: 0.4em;
     opacity: 0.95;
 }
@@ -64,14 +65,14 @@ body {
     text-align: center;
     font-size: 1.9em;
     font-weight: 800;
-    margin-bottom: 1.2em;
+    margin-bottom: 1.4em;
 }
 
 /* ===== Cards ===== */
 .card {
     background: #ffffff;
-    border-radius: 14px;
-    padding: 1.6em;
+    border-radius: 16px;
+    padding: 1.7em;
     box-shadow: 0 6px 18px rgba(0,0,0,0.06);
     transition: transform 0.3s, box-shadow 0.3s;
     height: 100%;
@@ -80,12 +81,12 @@ body {
 
 .card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 10px 26px rgba(138,21,56,0.25);
+    box-shadow: 0 12px 28px rgba(138,21,56,0.25);
 }
 
 .card h3 {
     color: #8A1538;
-    font-size: 1.15em;
+    font-size: 1.18em;
     font-weight: 800;
     margin-bottom: 0.3em;
 }
@@ -104,15 +105,15 @@ body {
 /* ===== Vision & Mission ===== */
 .vm-box {
     background: white;
-    border-radius: 14px;
-    padding: 1.6em;
+    border-radius: 16px;
+    padding: 1.7em;
     box-shadow: 0 6px 18px rgba(0,0,0,0.06);
     border-right: 4px solid #8A1538;
 }
 
 .vm-box h4 {
     color: #8A1538;
-    font-size: 1.4em;
+    font-size: 1.45em;
     font-weight: 800;
     margin-bottom: 0.6em;
 }
@@ -128,23 +129,28 @@ body {
     color: white;
     text-align: center;
     padding: 1.2em;
-    border-radius: 12px;
+    border-radius: 14px;
     margin-top: 3em;
     font-size: 0.9em;
 }
 </style>
-""", unsafe_allow_html=True)
+""",
+    unsafe_allow_html=True,
+)
 
 # =========================
 # HEADER
 # =========================
-st.markdown("""
+st.markdown(
+    """
 <div class="hero">
     <div class="hero-title">صوت السلام</div>
     <div class="hero-sub">في ظل مدرسة آمنة محمود الجيدة</div>
     <div class="hero-tag">تعليمٌ آمن… ومستقبلٌ أكثر سلامًا</div>
 </div>
-""", unsafe_allow_html=True)
+""",
+    unsafe_allow_html=True,
+)
 
 # =========================
 # TABS AS CARDS
@@ -154,7 +160,8 @@ st.markdown('<div class="section-title">المبادرات والفعاليات<
 c1, c2, c3 = st.columns(3, gap="large")
 
 with c1:
-    st.markdown("""
+    st.markdown(
+        """
     <div class="card">
         <div class="date">9 سبتمبر</div>
         <h3>حماية التعليم ضد الهجمات</h3>
@@ -163,12 +170,15 @@ with c1:
         وحماية المدارس كمساحات تعليمية آمنة.
         </p>
     </div>
-    """, unsafe_allow_html=True)
-    if st.button("فتح الصفحة", use_container_width=True):
+    """,
+        unsafe_allow_html=True,
+    )
+    if st.button("فتح الصفحة", key="open_himayat", use_container_width=True):
         st.switch_page("pages/1_Himayat_Altaleem.py")
 
 with c2:
-    st.markdown("""
+    st.markdown(
+        """
     <div class="card">
         <div class="date">29 نوفمبر</div>
         <h3>اليوم العالمي للتضامن مع فلسطين</h3>
@@ -177,12 +187,15 @@ with c2:
         التضامن والعدالة والرحمة.
         </p>
     </div>
-    """, unsafe_allow_html=True)
-    if st.button("فتح الصفحة", use_container_width=True):
+    """,
+        unsafe_allow_html=True,
+    )
+    if st.button("فتح الصفحة", key="open_filasteen", use_container_width=True):
         st.switch_page("pages/2_Tadamon_Filasteen.py")
 
 with c3:
-    st.markdown("""
+    st.markdown(
+        """
     <div class="card">
         <div class="date">24 يناير</div>
         <h3>يوم التعليم العالمي</h3>
@@ -191,19 +204,22 @@ with c3:
         وتنمية الدافعية للتعلم.
         </p>
     </div>
-    """, unsafe_allow_html=True)
-    if st.button("فتح الصفحة", use_container_width=True):
+    """,
+        unsafe_allow_html=True,
+    )
+    if st.button("فتح الصفحة", key="open_edu", use_container_width=True):
         st.switch_page("pages/3_Yawm_Altaleem.py")
 
 # =========================
-# VISION & MISSION
+# VISION & MISSION (UNESCO)
 # =========================
 st.markdown('<div class="section-title">رؤية ورسالة مدارس اليونسكو</div>', unsafe_allow_html=True)
 
 v1, v2 = st.columns(2, gap="large")
 
 with v1:
-    st.markdown("""
+    st.markdown(
+        """
     <div class="vm-box">
         <h4>الرؤية</h4>
         <p>
@@ -212,10 +228,13 @@ with v1:
         وشامل للجميع.
         </p>
     </div>
-    """, unsafe_allow_html=True)
+    """,
+        unsafe_allow_html=True,
+    )
 
 with v2:
-    st.markdown("""
+    st.markdown(
+        """
     <div class="vm-box">
         <h4>الرسالة</h4>
         <p>
@@ -224,13 +243,18 @@ with v2:
         هادفة داخل بيئة مدرسية آمنة.
         </p>
     </div>
-    """, unsafe_allow_html=True)
+    """,
+        unsafe_allow_html=True,
+    )
 
 # =========================
 # FOOTER
 # =========================
-st.markdown("""
+st.markdown(
+    """
 <div class="footer">
     © صوت السلام – مدرسة آمنة محمود الجيدة
 </div>
-""", unsafe_allow_html=True)
+""",
+    unsafe_allow_html=True,
+)
