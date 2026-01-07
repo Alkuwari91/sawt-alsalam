@@ -3,7 +3,7 @@ from pathlib import Path
 from styles import inject_global_css
 
 st.set_page_config(
-    page_title="اليوم العالمي للتضامن مع فلسطين | صوت السلام",
+    page_title="يوم التعليم العالمي | صوت السلام",
     layout="wide",
     initial_sidebar_state="collapsed",
 )
@@ -14,12 +14,13 @@ inject_global_css()
 st.markdown(
     """
 <div class="hero">
-  <div class="hero-title">اليوم العالمي للتضامن مع فلسطين</div>
+  <div class="hero-title">حماية التعليم ضد الهجمات</div>
   <div class="hero-sub">صوت السلام | مدرسة آمنة محمود الجيدة</div>
-  <div class="hero-tag">29 نوفمبر – التعليم حق… ويصنع المستقبل</div>
+  <div class="hero-tag">24 يناير – التعليم حق… ويصنع المستقبل</div>
 </div>
-"""
-
+""",
+    unsafe_allow_html=True,
+)
 
 # ===== 3 columns =====
 col1, col2, col3 = st.columns(3, gap="large")
@@ -47,17 +48,6 @@ with col2:
         st.markdown('<hr class="hr">', unsafe_allow_html=True)
         st.markdown(
             """
-<ul>
-  <li>فقرة تحفيزية: لماذا التعليم مهم لحياتنا؟</li>
-  <li>نشاط كتابي: "هدفي المستقبلي وكيف يساعدني التعليم"</li>
-  <li>عمل فني/ملصق صفّي عن قيمة التعليم</li>
-  <li>ركن مدرسي لعرض أعمال الطالبات</li>
-</ul>
-""",
-            unsafe_allow_html=True,
-        )
-        st.markdown("</div>", unsafe_allow_html=True)
-
 
 
 # ===== Card 3: معرض الصور =====
@@ -75,6 +65,12 @@ with col3:
 
         photos = sorted(photos)
 
+        if photos:
+            st.image([str(p) for p in photos], use_container_width=True)
+        else:
+            st.info("مافي صور مضافة بعد داخل assets/tadamon/photos")
+
+    
 
         st.markdown("</div>", unsafe_allow_html=True)
 
