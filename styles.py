@@ -65,5 +65,69 @@ div[data-testid="stVerticalBlockBorderWrapper"]{
   box-shadow: 0 6px 18px rgba(0,0,0,0.06) !important;
   padding: 1.2rem 1.2rem !important;
 }
+/* ===== Big Cards (Vision/Mission style) ===== */
+.big-card-wrap{
+  background:#ffffff;
+  border-radius:22px;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.06);
+  border:1px solid #f0f0f0;
+  padding: 1.6rem 1.6rem;
+  position: relative;
+  overflow: hidden;
+  min-height: 260px;
+}
+.big-card-wrap:after{
+  content:"";
+  position:absolute;
+  top:0; bottom:0;
+  left:0;            /* شريط جانبي */
+  width:6px;
+  background: linear-gradient(180deg, #8A1538, #6E0F2C);
+}
+.big-card-title{
+  color:#8A1538;
+  font-weight:800;
+  font-size: 1.7em;
+  margin: 0 0 .6rem 0;
+  text-align: center;
+}
+.big-card-text{
+  font-size: 1.05em;
+  line-height: 2;
+  margin: 0;
+  color:#333;
+  text-align: right;
+}
+
+/* ===== Small media cards (like initiative cards) ===== */
+.media-grid-title{
+  color:#8A1538;
+  font-weight:800;
+  font-size: 1.7em;
+  margin: 0 0 1rem 0;
+  text-align:center;
+}
+.media-card{
+  background:#ffffff;
+  border-radius:18px;
+  box-shadow: 0 8px 22px rgba(0,0,0,0.06);
+  border:1px solid #f0f0f0;
+  padding: 0.9rem;
+  overflow:hidden;
+}
+.media-card img{
+  width:100%;
+  height:170px;
+  object-fit: cover;
+  border-radius:12px;
+  display:block;
+}
+.media-caption{
+  margin-top:.65rem;
+  font-size:.95em;
+  color:#444;
+  text-align:center;
+}
+
     </style>
     """, unsafe_allow_html=True)
