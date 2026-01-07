@@ -48,13 +48,7 @@ with col2:
         st.markdown('<hr class="hr">', unsafe_allow_html=True)
         st.markdown(
             """
-<ul>
-  <li>فقرة تحفيزية: لماذا التعليم مهم لحياتنا؟</li>
-  <li>نشاط كتابي: "هدفي المستقبلي وكيف يساعدني التعليم"</li>
-  <li>عمل فني/ملصق صفّي عن قيمة التعليم</li>
-  <li>ركن مدرسي لعرض أعمال الطالبات</li>
-</ul>
-""",
+
             unsafe_allow_html=True,
         )
         st.markdown("</div>", unsafe_allow_html=True)
