@@ -64,7 +64,6 @@ with col3:
     with st.container():
         st.markdown('<div class="card">', unsafe_allow_html=True)
         st.markdown('<div class="sec">معرض الصور</div>', unsafe_allow_html=True)
-        st.caption("صور من GitHub داخل: assets/yawm/photos (أو ارفعي صور للعرض المؤقت)")
 
         photos_dir = Path("assets/yawm/photos")
 
@@ -79,16 +78,6 @@ with col3:
             st.image([str(p) for p in photos], use_container_width=True)
         else:
             st.info("مافي صور مضافة بعد داخل assets/yawm/photos")
-
-        st.divider()
-        uploaded = st.file_uploader(
-            "رفع صور للعرض (مؤقت)",
-            type=["png", "jpg", "jpeg", "webp"],
-            accept_multiple_files=True,
-            key="yawm_photos_upload",
-        )
-        if uploaded:
-            st.image(uploaded, use_container_width=True)
 
         st.markdown("</div>", unsafe_allow_html=True)
 
