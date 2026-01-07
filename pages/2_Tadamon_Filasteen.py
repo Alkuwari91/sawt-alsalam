@@ -2,6 +2,8 @@ import streamlit as st
 from pathlib import Path
 from styles import inject_global_css
 
+# إذا Home.py فقط فيه set_page_config
+# احذفي هذا الجزء لو مكرر عندك
 st.set_page_config(
     page_title="اليوم العالمي للتضامن مع فلسطين | صوت السلام",
     layout="wide",
@@ -10,72 +12,92 @@ st.set_page_config(
 
 inject_global_css()
 
-# ===== Header =====
+# =========================
+# HEADER
+# =========================
 st.markdown(
     """
 <div class="hero">
   <div class="hero-title">اليوم العالمي للتضامن مع فلسطين</div>
   <div class="hero-sub">صوت السلام | مدرسة آمنة محمود الجيدة</div>
-  <div class="hero-tag">29 نوفمبر – التعليم حق… ويصنع المستقبل</div>
+  <div class="hero-tag">29 نوفمبر</div>
 </div>
 """,
     unsafe_allow_html=True,
 )
 
-# ===== 3 columns =====
-col1, col2, col3 = st.columns(3, gap="large")
+# =========================
+# 2 BIG CARDS (مثل الرؤية والرسالة)
+# =========================
+c2, c1 = st.columns(2, gap="large")
 
-# ===== Card 1: الهدف =====
-with col1:
-    with st.container():
-        st.markdown('<div class="card">', unsafe_allow_html=True)
-        st.markdown('<div class="sec">الهدف من النشاط</div>', unsafe_allow_html=True)
-        st.markdown(
-            '<div class="p">تعزيز قيمة التعليم لدى الطالبات، ورفع الدافعية للتعلّم، وربط التعليم ببناء المستقبل وتنمية المهارات ضمن بيئة مدرسية آمنة وداعمة.</div>',
-            unsafe_allow_html=True,
-        )
-        st.markdown("</div>", unsafe_allow_html=True)
+with c1:  # الهدف (يمين)
+    st.markdown(
+        """
+<div class="big-card-wrap">
+  <div class="big-card-title">الهدف من النشاط</div>
+  <p class="big-card-text">
+    ترسيخ قيم التضامن الإنساني والعدالة لدى الطالبات،
+    وتنمية الوعي بحقوق الشعوب، وتعزيز التعاطف والسلام
+    من خلال أنشطة تربوية هادفة داخل البيئة المدرسية.
+  </p>
+</div>
+""",
+        unsafe_allow_html=True,
+    )
 
-# ===== Card 2: وصف النشاط =====
-# ===== Card 2: وصف النشاط =====
-with col2:
-    with st.container():
-        st.markdown('<div class="card">', unsafe_allow_html=True)
-        st.markdown('<div class="sec">وصف النشاط</div>', unsafe_allow_html=True)
-        st.markdown(
-            '<div class="p">تنفيذ أنشطة مدرسية احتفالية وتربوية بمناسبة يوم التعليم العالمي، تضمنت مشاركة الطالبات في أنشطة كتابية وفنية تعبّر عن أحلامهن وطموحاتهن ودور التعليم في تحقيقها، وذلك ضمن بيئة مدرسية آمنة وداعمة.</div>',
-            unsafe_allow_html=True,
-        )
-        st.markdown("</div>", unsafe_allow_html=True)
+with c2:  # وصف المشروع (يسار)
+    st.markdown(
+        """
+<div class="big-card-wrap">
+  <div class="big-card-title">وصف المشروع</div>
+  <p class="big-card-text">
+    تنفيذ نشاط توعوي بمناسبة اليوم العالمي للتضامن مع فلسطين،
+    تضمّن رسائل تربوية حول معاني التضامن والإنسانية،
+    ومشاركة الطالبات في أنشطة صفّية وفنية تعبّر عن
+    قيم السلام والتعاطف واحترام حقوق الإنسان.
+  </p>
+</div>
+""",
+        unsafe_allow_html=True,
+    )
 
-
-# ===== Card 3: معرض الصور =====
-with col3:
-    with st.container():
-        st.markdown('<div class="card">', unsafe_allow_html=True)
-        st.markdown('<div class="sec">معرض الصور</div>', unsafe_allow_html=True)
-
-        photos_dir = Path("assets/tadamon/photos")
-
-        photos = []
-        if photos_dir.exists():
-            for ext in ("*.png", "*.jpg", "*.jpeg", "*.webp"):
-                photos += list(photos_dir.glob(ext))
-
-        photos = sorted(photos)
-
-        if photos:
-            st.image([str(p) for p in photos], use_container_width=True)
-        else:
-            st.info("مافي صور مضافة بعد داخل assets/tadamon/photos")
-
-    
-
-        st.markdown("</div>", unsafe_allow_html=True)
-
-# ===== Back + Footer =====
+# =========================
+# GALLERY تحتهم بالنص
+# =========================
 st.write("")
-if st.button("← العودة إلى الصفحة الرئيسية", key="back_home_yawm", use_container_width=True):
+st.markdown(
+    '<div class="media-grid-title">معرض الصور</div>',
+    unsafe_allow_html=True,
+)
+
+PHOTOS_DIR = Path("assets/tadamon/photos")
+
+photos = []
+if PHOTOS_DIR.exists():
+    for ext in ("*.png", "*.jpg", "*.jpeg", "*.webp"):
+        photos += list(PHOTOS_DIR.glob(ext))
+photos = sorted(photos)
+
+if not photos:
+    st.info("مافي صور مضافة بعد داخل assets/tadamon/photos")
+else:
+    cols = st.columns(3, gap="large")
+    for i, path in enumerate(photos):
+        with cols[i % 3]:
+            st.markdown('<div class="media-card">', unsafe_allow_html=True)
+            st.image(str(path), use_container_width=True)
+            st.markdown(
+                f'<div class="media-caption">{path.name}</div>',
+                unsafe_allow_html=True,
+            )
+            st.markdown("</div>", unsafe_allow_html=True)
+
+# =========================
+# BACK + FOOTER
+# =========================
+st.write("")
+if st.button("← العودة إلى الصفحة الرئيسية", key="back_home_tadamon", use_container_width=True):
     st.switch_page("Home.py")
 
 st.markdown(
