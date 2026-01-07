@@ -3,152 +3,7 @@ from pathlib import Path
 from styles import inject_global_css
 
 st.set_page_config(
-    page_title="اليوم العالمي للتضامن مع فلسطين | صوت السلام",
-    layout="wide",
-    initial_sidebar_state="collapsed",
-)
-
-inject_global_css()
-
-# =========================
-# HEADER
-# =========================
-st.markdown(
-    """
-<div class="hero">
-  <div class="hero-title">اليوم العالمي للتضامن مع فلسطين</div>
-  <div class="hero-sub">صوت السلام | مدرسة آمنة محمود الجيدة</div>
-  <div class="hero-tag">29 نوفمبر</div>
-</div>
-""",
-    unsafe_allow_html=True,
-)
-
-# =========================
-# 3 BIG CARDS (RTL order)
-# right -> left visually
-# =========================
-c3, c2, c1 = st.columns(3, gap="large")
-
-with c1:  # الهدف (يمين)
-    st.markdown(
-        """
-<div class="big-card-wrap">
-  <div class="big-card-title">الهدف من النشاط</div>
-  <p class="big-card-text">
-    تعزيز قيم التضامن والرحمة والعدالة لدى الطالبات، وتنمية الوعي الإنساني
-    واحترام حقوق الإنسان، وربط هذه القيم بسلوكيات إيجابية داخل المدرسة.
-  </p>
-</div>
-""",
-        unsafe_allow_html=True,
-    )
-
-with c2:  # الوصف (وسط)
-    st.markdown(
-        """
-<div class="big-card-wrap">
-  <div class="big-card-title">وصف النشاط</div>
-  <p class="big-card-text">
-    تنفيذ أنشطة تربوية توعوية بمناسبة اليوم العالمي للتضامن مع فلسطين،
-    شملت حوارًا صفّيًا حول معنى التضامن، ورسائل طلابية تعبّر عن القيم الإنسانية،
-    ومشاركة أعمال فنية/كتابية تعكس التعاطف والسلام.
-  </p>
-  <hr class="hr" />
-  <ul>
-    <li>فقرة توعوية قصيرة عن مفهوم التضامن</li>
-    <li>مناقشة صفية: كيف نعبّر عن التضامن بطرق إيجابية؟</li>
-    <li>نشاط كتابي: رسالة سلام/تضامن</li>
-    <li>لوحة صفية أو ركن مدرسي للمبادرة</li>
-  </ul>
-</div>
-""",
-        unsafe_allow_html=True,
-    )
-
-with c3:  # الأثر (يسار)
-    st.markdown(
-        """
-<div class="big-card-wrap">
-  <div class="big-card-title">الأثر التعليمي</div>
-  <p class="big-card-text">
-    تنمية الحس الإنساني لدى الطالبات، وتعزيز مهارات التعبير والحوار،
-    وترسيخ قيم السلام والتعاطف ضمن بيئة مدرسية آمنة.
-  </p>
-</div>
-""",
-        unsafe_allow_html=True,
-    )
-
-# =========================
-# MEDIA GALLERY (cards like bottom initiatives)
-# =========================
-st.write("")
-st.markdown(
-    '<div class="media-grid-title">معرض الصور والفيديوات</div>',
-    unsafe_allow_html=True,
-)
-
-PHOTOS_DIR = Path("assets/tadamon/photos")
-VIDEOS_DIR = Path("assets/tadamon/videos")
-
-photos = []
-if PHOTOS_DIR.exists():
-    for ext in ("*.png", "*.jpg", "*.jpeg", "*.webp"):
-        photos += list(PHOTOS_DIR.glob(ext))
-photos = sorted(photos)
-
-videos = []
-if VIDEOS_DIR.exists():
-    for ext in ("*.mp4", "*.mov", "*.webm"):
-        videos += list(VIDEOS_DIR.glob(ext))
-videos = sorted(videos)
-
-items = [("photo", p) for p in photos] + [("video", v) for v in videos]
-
-if not items:
-    st.info(
-        "مافي ملفات مضافة بعد.\n\n"
-        "ضعي الصور داخل: assets/tadamon/photos\n"
-        "وضعي الفيديوات داخل: assets/tadamon/videos"
-    )
-else:
-    cols = st.columns(3, gap="large")
-    for i, (kind, path) in enumerate(items):
-        with cols[i % 3]:
-            st.markdown('<div class="media-card">', unsafe_allow_html=True)
-
-            if kind == "photo":
-                st.markdown(
-                    f'<img src="{path.as_posix()}" />',
-                    unsafe_allow_html=True,
-                )
-            else:
-                st.video(str(path))
-
-            st.markdown(
-                f'<div class="media-caption">{path.name}</div>',
-                unsafe_allow_html=True,
-            )
-            st.markdown("</div>", unsafe_allow_html=True)
-
-# =========================
-# BACK + FOOTER
-# =========================
-st.write("")
-if st.button("← العودة إلى الصفحة الرئيسية", key="back_home_tadamon", use_container_width=True):
-    st.switch_page("Home.py")
-
-st.markdown(
-    '<div class="footer">© صوت السلام – مدرسة آمنة محمود الجيدة</div>',
-    unsafe_allow_html=True,
-)
-import streamlit as st
-from pathlib import Path
-from styles import inject_global_css
-
-st.set_page_config(
-    page_title="اليوم العالمي للتضامن مع فلسطين | صوت السلام",
+    page_title="يوم التعليم العالمي | صوت السلام",
     layout="wide",
     initial_sidebar_state="collapsed",
 )
@@ -156,98 +11,93 @@ st.set_page_config(
 inject_global_css()
 
 # ===== Header =====
-st.markdown("""
+st.markdown(
+    """
 <div class="hero">
-  <div class="hero-title">اليوم العالمي للتضامن مع فلسطين</div>
+  <div class="hero-title">يوم التعليم العالمي</div>
   <div class="hero-sub">صوت السلام | مدرسة آمنة محمود الجيدة</div>
-  <div class="hero-tag">29 نوفمبر</div>
+  <div class="hero-tag">24 يناير – التعليم حق… ويصنع المستقبل</div>
 </div>
-""", unsafe_allow_html=True)
+""",
+    unsafe_allow_html=True,
+)
 
-# ===== 3 BIG CARDS (Vision/Mission style) =====
-c3, c2, c1 = st.columns(3, gap="large")
+# ===== 3 columns =====
+col1, col2, col3 = st.columns(3, gap="large")
 
-with c1:  # الهدف
-    st.markdown("""
-<div class="big-card-wrap">
-  <div class="big-card-title">الهدف من النشاط</div>
-  <p class="big-card-text">
-    تعزيز قيم التضامن والرحمة والعدالة لدى الطالبات، وتنمية الوعي الإنساني
-    واحترام حقوق الإنسان.
-  </p>
-</div>
-""", unsafe_allow_html=True)
+# ===== Card 1: الهدف =====
+with col1:
+    with st.container():
+        st.markdown('<div class="card">', unsafe_allow_html=True)
+        st.markdown('<div class="sec">الهدف من النشاط</div>', unsafe_allow_html=True)
+        st.markdown(
+            '<div class="p">تعزيز قيمة التعليم لدى الطالبات، ورفع الدافعية للتعلّم، وربط التعليم ببناء المستقبل وتنمية المهارات ضمن بيئة مدرسية آمنة وداعمة.</div>',
+            unsafe_allow_html=True,
+        )
+        st.markdown("</div>", unsafe_allow_html=True)
 
-with c2:  # الوصف
-    st.markdown("""
-<div class="big-card-wrap">
-  <div class="big-card-title">وصف النشاط</div>
-  <p class="big-card-text">
-    تنفيذ أنشطة تربوية توعوية بمناسبة اليوم العالمي للتضامن مع فلسطين.
-  </p>
-  <ul>
-    <li>فقرة توعوية عن مفهوم التضامن</li>
-    <li>مناقشة صفية</li>
-    <li>نشاط كتابي</li>
-    <li>لوحة صفية</li>
-  </ul>
-</div>
-""", unsafe_allow_html=True)
+# ===== Card 2: وصف النشاط =====
+with col2:
+    with st.container():
+        st.markdown('<div class="card">', unsafe_allow_html=True)
+        st.markdown('<div class="sec">وصف النشاط</div>', unsafe_allow_html=True)
+        st.markdown(
+            '<div class="p">تنفيذ أنشطة مدرسية احتفالية وتربوية بمناسبة يوم التعليم العالمي، تضمنت رسائل تحفيزية عن أهمية التعليم، ومشاركة الطالبات في أنشطة كتابية/فنية تعبّر عن أحلامهن وطموحاتهن ودور التعليم في تحقيقها.</div>',
+            unsafe_allow_html=True,
+        )
+        st.markdown('<hr class="hr">', unsafe_allow_html=True)
+        st.markdown(
+            """
+<ul>
+  <li>فقرة تحفيزية: لماذا التعليم مهم لحياتنا؟</li>
+  <li>نشاط كتابي: "هدفي المستقبلي وكيف يساعدني التعليم"</li>
+  <li>عمل فني/ملصق صفّي عن قيمة التعليم</li>
+  <li>ركن مدرسي لعرض أعمال الطالبات</li>
+</ul>
+""",
+            unsafe_allow_html=True,
+        )
+        st.markdown("</div>", unsafe_allow_html=True)
 
-with c3:  # الأثر
-    st.markdown("""
-<div class="big-card-wrap">
-  <div class="big-card-title">الأثر التعليمي</di
+# ===== Card 3: معرض الصور =====
+with col3:
+    with st.container():
+        st.markdown('<div class="card">', unsafe_allow_html=True)
+        st.markdown('<div class="sec">معرض الصور</div>', unsafe_allow_html=True)
+        st.caption("صور من GitHub داخل: assets/yawm/photos (أو ارفعي صور للعرض المؤقت)")
 
+        photos_dir = Path("assets/yawm/photos")
 
-# ===== Media Grid (Small cards like initiatives) =====
-PHOTOS_DIR = Path("assets/tadamon/photos")
-VIDEOS_DIR = Path("assets/tadamon/videos")
+        photos = []
+        if photos_dir.exists():
+            for ext in ("*.png", "*.jpg", "*.jpeg", "*.webp"):
+                photos += list(photos_dir.glob(ext))
 
-photos = []
-if PHOTOS_DIR.exists():
-    for ext in ("*.png", "*.jpg", "*.jpeg", "*.webp"):
-        photos += list(PHOTOS_DIR.glob(ext))
-photos = sorted(photos)
+        photos = sorted(photos)
 
-videos = []
-if VIDEOS_DIR.exists():
-    for ext in ("*.mp4", "*.mov", "*.webm"):
-        videos += list(VIDEOS_DIR.glob(ext))
-videos = sorted(videos)
+        if photos:
+            st.image([str(p) for p in photos], use_container_width=True)
+        else:
+            st.info("مافي صور مضافة بعد داخل assets/yawm/photos")
 
-items = [("photo", p) for p in photos] + [("video", v) for v in videos]
+        st.divider()
+        uploaded = st.file_uploader(
+            "رفع صور للعرض (مؤقت)",
+            type=["png", "jpg", "jpeg", "webp"],
+            accept_multiple_files=True,
+            key="yawm_photos_upload",
+        )
+        if uploaded:
+            st.image(uploaded, use_container_width=True)
 
-if not items:
-    st.info("مافي ملفات مضافة بعد. ضعي الصور داخل assets/tadamon/photos والفيديوات داخل assets/tadamon/videos")
-else:
-    cols = st.columns(3, gap="large")
-    for i, (kind, path) in enumerate(items):
-        with cols[i % 3]:
-            st.markdown('<div class="media-card">', unsafe_allow_html=True)
+        st.markdown("</div>", unsafe_allow_html=True)
 
-            if kind == "photo":
-                # Image card
-                st.markdown(
-                    f'<img src="{path.as_posix()}" />',
-                    unsafe_allow_html=True
-                )
-                st.markdown(
-                    f'<div class="media-caption">{path.name}</div>',
-                    unsafe_allow_html=True
-                )
-            else:
-                # Video card (use Streamlit video inside the card container)
-                st.video(str(path))
-                st.markdown(
-                    f'<div class="media-caption">{path.name}</div>',
-                    unsafe_allow_html=True
-                )
-
-            st.markdown('</div>', unsafe_allow_html=True)
-
+# ===== Back + Footer =====
 st.write("")
-if st.button("← العودة إلى الصفحة الرئيسية", key="back_home_tadamon", use_container_width=True):
+if st.button("← العودة إلى الصفحة الرئيسية", key="back_home_yawm", use_container_width=True):
     st.switch_page("Home.py")
 
-st.markdown('<div class="footer">© صوت السلام – مدرسة آمنة محمود الجيدة</div>', unsafe_allow_html=True)
+st.markdown(
+    '<div class="footer">© صوت السلام – مدرسة آمنة محمود الجيدة</div>',
+    unsafe_allow_html=True,
+)
