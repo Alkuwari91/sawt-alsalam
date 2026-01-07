@@ -1,4 +1,10 @@
 import streamlit as st
+from styles import inject_global_css
+
+st.set_page_config(...)
+
+inject_global_css()
+
 
 # =========================
 # PAGE CONFIG
