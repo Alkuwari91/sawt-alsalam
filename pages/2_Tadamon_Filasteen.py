@@ -44,13 +44,20 @@ with col2:
             '<div class="p">تنفيذ أنشطة مدرسية احتفالية وتربوية بمناسبة يوم التعليم العالمي، تضمنت رسائل تحفيزية عن أهمية التعليم، ومشاركة الطالبات في أنشطة كتابية/فنية تعبّر عن أحلامهن وطموحاتهن ودور التعليم في تحقيقها.</div>',
             unsafe_allow_html=True,
         )
-        st.markdown('<hr class="hr">', unsafe_allow_html=True)
+               st.markdown('<hr class="hr">', unsafe_allow_html=True)
         st.markdown(
             """
-
+<ul>
+  <li>فقرة تحفيزية: لماذا التعليم مهم لحياتنا؟</li>
+  <li>نشاط كتابي: "هدفي المستقبلي وكيف يساعدني التعليم"</li>
+  <li>عمل فني/ملصق صفّي عن قيمة التعليم</li>
+  <li>ركن مدرسي لعرض أعمال الطالبات</li>
+</ul>
+""",
             unsafe_allow_html=True,
         )
         st.markdown("</div>", unsafe_allow_html=True)
+
 
 # ===== Card 3: معرض الصور =====
 with col3:
