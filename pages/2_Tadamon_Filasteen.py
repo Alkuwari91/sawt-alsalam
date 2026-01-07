@@ -20,51 +20,40 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # ===== 3 BIG CARDS (Vision/Mission style) =====
-c1, c2, c3 = st.columns(3, gap="large")
+c3, c2, c1 = st.columns(3, gap="large")
 
-with c1:
+with c1:  # الهدف
     st.markdown("""
 <div class="big-card-wrap">
   <div class="big-card-title">الهدف من النشاط</div>
   <p class="big-card-text">
     تعزيز قيم التضامن والرحمة والعدالة لدى الطالبات، وتنمية الوعي الإنساني
-    واحترام حقوق الإنسان، وربط هذه القيم بسلوكيات إيجابية داخل المدرسة.
+    واحترام حقوق الإنسان.
   </p>
 </div>
 """, unsafe_allow_html=True)
 
-with c2:
+with c2:  # الوصف
     st.markdown("""
 <div class="big-card-wrap">
   <div class="big-card-title">وصف النشاط</div>
   <p class="big-card-text">
-    تنفيذ أنشطة تربوية توعوية بمناسبة اليوم العالمي للتضامن مع فلسطين،
-    شملت حوارًا صفّيًا حول معنى التضامن، ورسائل طلابية تعبّر عن القيم الإنسانية،
-    ومشاركة أعمال فنية/كتابية تعكس التعاطف والسلام.
+    تنفيذ أنشطة تربوية توعوية بمناسبة اليوم العالمي للتضامن مع فلسطين.
   </p>
-  <hr class="hr" />
   <ul>
-    <li>فقرة توعوية قصيرة عن مفهوم التضامن</li>
-    <li>مناقشة صفية: كيف نعبّر عن التضامن بطرق إيجابية؟</li>
-    <li>نشاط كتابي: رسالة سلام/تضامن</li>
-    <li>لوحة صفية أو ركن مدرسي للمبادرة</li>
+    <li>فقرة توعوية عن مفهوم التضامن</li>
+    <li>مناقشة صفية</li>
+    <li>نشاط كتابي</li>
+    <li>لوحة صفية</li>
   </ul>
 </div>
 """, unsafe_allow_html=True)
 
-with c3:
+with c3:  # الأثر
     st.markdown("""
 <div class="big-card-wrap">
-  <div class="big-card-title">الأثر التعليمي</div>
-  <p class="big-card-text">
-    تنمية الحس الإنساني لدى الطالبات، وتعزيز مهارات التعبير والحوار،
-    وترسيخ قيم السلام والتعاطف ضمن بيئة مدرسية آمنة.
-  </p>
-</div>
-""", unsafe_allow_html=True)
+  <div class="big-card-title">الأثر التعليمي</di
 
-st.write("")
-st.markdown('<div class="media-grid-title">معرض الصور والفيديوات</div>', unsafe_allow_html=True)
 
 # ===== Media Grid (Small cards like initiatives) =====
 PHOTOS_DIR = Path("assets/tadamon/photos")
