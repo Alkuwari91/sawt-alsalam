@@ -57,5 +57,13 @@ def inject_global_css():
       margin-top: 2.2em;
       font-size:.9em;
     }
+    /* Streamlit bordered containers as "cards" */
+div[data-testid="stVerticalBlockBorderWrapper"]{
+  background:#ffffff !important;
+  border:1px solid #f0f0f0 !important;
+  border-radius:16px !important;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06) !important;
+  padding: 1.2rem 1.2rem !important;
+}
     </style>
     """, unsafe_allow_html=True)
