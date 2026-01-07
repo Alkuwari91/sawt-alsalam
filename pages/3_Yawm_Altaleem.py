@@ -65,11 +65,12 @@ with c2:  # وصف المشروع (يسار)
 # =========================
 st.write("")
 st.markdown(
-    '<div class="media-grid-title">معرض الصور</div>',
+    '<div class="media-grid-title">معرض الصور والفيديوات</div>',
     unsafe_allow_html=True,
 )
 
 PHOTOS_DIR = Path("assets/yawm/photos")
+VIDEOS_DIR = Path("assets/yawm/videos")
 
 photos = []
 if PHOTOS_DIR.exists():
@@ -77,14 +78,31 @@ if PHOTOS_DIR.exists():
         photos += list(PHOTOS_DIR.glob(ext))
 photos = sorted(photos)
 
-if not photos:
-    st.info("مافي صور مضافة بعد داخل assets/yawm/photos")
+videos = []
+if VIDEOS_DIR.exists():
+    for ext in ("*.mp4","*.MP4","*.mov","*.MOV","*.webm","*.WEBM","*.m4v","*.M4V"):
+        videos += list(VIDEOS_DIR.glob(ext))
+videos = sorted(videos)
+
+items = [("photo", p) for p in photos] + [("video", v) for v in videos]
+
+if not items:
+    st.info(
+        "مافي ملفات مضافة بعد.\n\n"
+        "ضعي الصور داخل: assets/yawm/photos\n"
+        "وضعي الفيديوات داخل: assets/yawm/videos"
+    )
 else:
     cols = st.columns(3, gap="large")
-    for i, path in enumerate(photos):
+    for i, (kind, path) in enumerate(items):
         with cols[i % 3]:
             st.markdown('<div class="media-card">', unsafe_allow_html=True)
-            st.image(str(path), use_container_width=True)
+
+            if kind == "photo":
+                st.image(str(path), use_container_width=True)
+            else:
+                st.video(str(path))
+
             st.markdown(
                 f'<div class="media-caption">{path.name}</div>',
                 unsafe_allow_html=True,
