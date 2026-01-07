@@ -3,7 +3,7 @@ from pathlib import Path
 from styles import inject_global_css
 
 st.set_page_config(
-    page_title="يوم التعليم العالمي | صوت السلام",
+    page_title="حماية التعليم ضد الهجمات | صوت السلام",
     layout="wide",
     initial_sidebar_state="collapsed",
 )
@@ -16,7 +16,7 @@ st.markdown(
 <div class="hero">
   <div class="hero-title">حماية التعليم ضد الهجمات</div>
   <div class="hero-sub">صوت السلام | مدرسة آمنة محمود الجيدة</div>
-  <div class="hero-tag">24 يناير – التعليم حق… ويصنع المستقبل</div>
+  <div class="hero-tag">9 – التعليم حق… ويصنع المستقبل</div>
 </div>
 """,
     unsafe_allow_html=True,
