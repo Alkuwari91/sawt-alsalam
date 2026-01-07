@@ -18,9 +18,8 @@ st.markdown(
   <div class="hero-sub">صوت السلام | مدرسة آمنة محمود الجيدة</div>
   <div class="hero-tag">29 نوفمبر – التعليم حق… ويصنع المستقبل</div>
 </div>
-""",
-    unsafe_allow_html=True,
-)
+"""
+
 
 # ===== 3 columns =====
 col1, col2, col3 = st.columns(3, gap="large")
