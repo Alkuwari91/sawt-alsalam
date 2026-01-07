@@ -12,8 +12,7 @@ st.set_page_config(
 # =========================
 # GLOBAL CSS (RASEKHON STYLE)
 # =========================
-st.markdown(
-    """
+st.markdown("""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap');
 
@@ -21,7 +20,7 @@ html, body, [class*="css"] {
     font-family: 'Cairo', sans-serif;
 }
 
-body {
+.stApp {
     background-color: #F9FBFC;
     color: #333;
     direction: rtl;
@@ -44,7 +43,6 @@ body {
 .hero-title {
     font-size: 2.8em;
     font-weight: 800;
-    margin: 0;
 }
 
 .hero-sub {
@@ -88,7 +86,6 @@ body {
     color: #8A1538;
     font-size: 1.18em;
     font-weight: 800;
-    margin-bottom: 0.3em;
 }
 
 .card .date {
@@ -115,12 +112,10 @@ body {
     color: #8A1538;
     font-size: 1.45em;
     font-weight: 800;
-    margin-bottom: 0.6em;
 }
 
 .vm-box p {
     line-height: 1.9;
-    font-size: 1em;
 }
 
 /* ===== Footer ===== */
@@ -131,12 +126,10 @@ body {
     padding: 1.2em;
     border-radius: 14px;
     margin-top: 3em;
-    font-size: 0.9em;
 }
 </style>
-""",
-    unsafe_allow_html=True,
-)
+""", unsafe_allow_html=True)
+
 
 # =========================
 # HEADER
