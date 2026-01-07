@@ -27,8 +27,7 @@ col1, col2, col3 = st.columns(3, gap="large")
 
 # ===== Card 1: الهدف =====
 with col1:
-    c1 = st.container()
-    with c1:
+    with st.container():
         st.markdown('<div class="card">', unsafe_allow_html=True)
         st.markdown('<div class="sec">الهدف من النشاط</div>', unsafe_allow_html=True)
         st.markdown(
@@ -39,8 +38,7 @@ with col1:
 
 # ===== Card 2: وصف النشاط =====
 with col2:
-    c2 = st.container()
-    with c2:
+    with st.container():
         st.markdown('<div class="card">', unsafe_allow_html=True)
         st.markdown('<div class="sec">وصف النشاط</div>', unsafe_allow_html=True)
         st.markdown(
@@ -63,8 +61,7 @@ with col2:
 
 # ===== Card 3: معرض الصور =====
 with col3:
-    c3 = st.container()
-    with c3:
+    with st.container():
         st.markdown('<div class="card">', unsafe_allow_html=True)
         st.markdown('<div class="sec">معرض الصور</div>', unsafe_allow_html=True)
         st.caption("صور من GitHub داخل: assets/yawm/photos (أو ارفعي صور للعرض المؤقت)")
@@ -75,6 +72,7 @@ with col3:
         if photos_dir.exists():
             for ext in ("*.png", "*.jpg", "*.jpeg", "*.webp"):
                 photos += list(photos_dir.glob(ext))
+
         photos = sorted(photos)
 
         if photos:
@@ -83,14 +81,14 @@ with col3:
             st.info("مافي صور مضافة بعد داخل assets/yawm/photos")
 
         st.divider()
-        up = st.file_uploader(
+        uploaded = st.file_uploader(
             "رفع صور للعرض (مؤقت)",
             type=["png", "jpg", "jpeg", "webp"],
             accept_multiple_files=True,
             key="yawm_photos_upload",
         )
-        if up:
-            st.image(up, use_container_width=True)
+        if uploaded:
+            st.image(uploaded, use_container_width=True)
 
         st.markdown("</div>", unsafe_allow_html=True)
 
