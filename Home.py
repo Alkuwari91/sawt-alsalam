@@ -145,6 +145,44 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
+
+
+# =========================
+# VISION & MISSION (UNESCO)
+# =========================
+st.markdown('<div class="section-title">رؤية ورسالة مدارس اليونسكو</div>', unsafe_allow_html=True)
+
+v1, v2 = st.columns(2, gap="large")
+
+with v1:
+    st.markdown(
+        """
+    <div class="vm-box">
+        <h4>الرؤية</h4>
+        <p>
+        بناء جيل واعٍ يؤمن بالسلام، ويحترم حقوق الإنسان،
+        ويقدّر التنوع الثقافي، ويساهم في تحقيق تعليم آمن
+        وشامل للجميع.
+        </p>
+    </div>
+    """,
+        unsafe_allow_html=True,
+    )
+
+with v2:
+    st.markdown(
+        """
+    <div class="vm-box">
+        <h4>الرسالة</h4>
+        <p>
+        ترسيخ قيم السلام وحماية التعليم وتعزيز التضامن
+        الإنساني عبر مبادرات تعليمية نوعية وأنشطة مدرسية
+        هادفة داخل بيئة مدرسية آمنة.
+        </p>
+    </div>
+    """,
+        unsafe_allow_html=True,
+    )
 # =========================
 # TABS AS CARDS
 # =========================
@@ -202,44 +240,6 @@ with c3:
     )
     if st.button("فتح الصفحة", key="open_edu", use_container_width=True):
         st.switch_page("pages/3_Yawm_Altaleem.py")
-
-# =========================
-# VISION & MISSION (UNESCO)
-# =========================
-st.markdown('<div class="section-title">رؤية ورسالة مدارس اليونسكو</div>', unsafe_allow_html=True)
-
-v1, v2 = st.columns(2, gap="large")
-
-with v1:
-    st.markdown(
-        """
-    <div class="vm-box">
-        <h4>الرؤية</h4>
-        <p>
-        بناء جيل واعٍ يؤمن بالسلام، ويحترم حقوق الإنسان،
-        ويقدّر التنوع الثقافي، ويساهم في تحقيق تعليم آمن
-        وشامل للجميع.
-        </p>
-    </div>
-    """,
-        unsafe_allow_html=True,
-    )
-
-with v2:
-    st.markdown(
-        """
-    <div class="vm-box">
-        <h4>الرسالة</h4>
-        <p>
-        ترسيخ قيم السلام وحماية التعليم وتعزيز التضامن
-        الإنساني عبر مبادرات تعليمية نوعية وأنشطة مدرسية
-        هادفة داخل بيئة مدرسية آمنة.
-        </p>
-    </div>
-    """,
-        unsafe_allow_html=True,
-    )
-
 # =========================
 # FOOTER
 # =========================
