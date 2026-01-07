@@ -60,34 +60,39 @@ with col2:
 
 # -------- Card 3: معرض الصور --------
 with col3:
-    st.markdown('<div class="card">', unsafe_allow_html=True)
-    st.markdown('<div class="sec">معرض الصور</div>', unsafe_allow_html=True)
-    st.caption("صور من GitHub داخل: assets/tadamon/photos  (أو ارفعي صور للعرض المؤقت)")
+    card3 = st.container()
+    with card3:
+        st.markdown('<div class="card">', unsafe_allow_html=True)
 
-    PHOTOS_DIR = Path("assets/tadamon/photos")
+        st.markdown('<div class="sec">معرض الصور</div>', unsafe_allow_html=True)
+        st.caption("صور من GitHub داخل: assets/tadamon/photos (أو ارفعي صور للعرض المؤقت)")
 
-    photos = []
-    if PHOTOS_DIR.exists():
-        for ext in ("*.png", "*.jpg", "*.jpeg", "*.webp"):
-            photos += list(PHOTOS_DIR.glob(ext))
-    photos = sorted(photos)
+        PHOTOS_DIR = Path("assets/tadamon/photos")
 
-    if photos:
-        st.image([str(p) for p in photos], use_container_width=True)
-    else:
-        st.info("مافي صور مضافة بعد داخل assets/tadamon/photos")
+        photos = []
+        if PHOTOS_DIR.exists():
+            for ext in ("*.png", "*.jpg", "*.jpeg", "*.webp"):
+                photos += list(PHOTOS_DIR.glob(ext))
+        photos = sorted(photos)
 
-    st.divider()
-    up = st.file_uploader(
-        "رفع صور للعرض (مؤقت)",
-        type=["png", "jpg", "jpeg", "webp"],
-        accept_multiple_files=True,
-        key="tadamon_photos_upload",
-    )
-    if up:
-        st.image(up, use_container_width=True)
+        if photos:
+            st.image([str(p) for p in photos], use_container_width=True)
+        else:
+            st.info("مافي صور مضافة بعد داخل assets/tadamon/photos")
 
-    st.markdown('</div>', unsafe_allow_html=True)
+        st.divider()
+
+        up = st.file_uploader(
+            "رفع صور للعرض (مؤقت)",
+            type=["png", "jpg", "jpeg", "webp"],
+            accept_multiple_files=True,
+            key="tadamon_photos_upload",
+        )
+        if up:
+            st.image(up, use_container_width=True)
+
+        st.markdown('</div>', unsafe_allow_html=True)
+
 
 # =========================
 # BACK BUTTON + FOOTER
