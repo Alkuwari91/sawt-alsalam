@@ -79,15 +79,7 @@ with col3:
         else:
             st.info("مافي صور مضافة بعد داخل assets/himayat/photos")
 
-        st.divider()
-        uploaded = st.file_uploader(
-            "رفع صور للعرض (مؤقت)",
-            type=["png", "jpg", "jpeg", "webp"],
-            accept_multiple_files=True,
-            key="himayat_photos_upload",
-        )
-        if uploaded:
-            st.image(uploaded, use_container_width=True)
+    
 
         st.markdown("</div>", unsafe_allow_html=True)
 
