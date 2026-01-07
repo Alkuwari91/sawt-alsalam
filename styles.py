@@ -3,6 +3,13 @@ import streamlit as st
 def inject_global_css():
     st.markdown("""
     <style>
+    /* ===== RTL Global ===== */
+html, body, [class*="stApp"] {
+  direction: rtl;
+  text-align: right;
+  font-family: "Cairo", "Segoe UI", sans-serif;
+}
+
     @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap');
     html, body, [class*="css"] { font-family: 'Cairo', sans-serif; }
 
