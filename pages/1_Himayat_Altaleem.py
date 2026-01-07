@@ -14,7 +14,7 @@ inject_global_css()
 st.markdown(
     """
 <div class="hero">
-  <div class="hero-title">يوم التعليم العالمي</div>
+  <div class="hero-title">حماية التعليم ضد الهجمات</div>
   <div class="hero-sub">صوت السلام | مدرسة آمنة محمود الجيدة</div>
   <div class="hero-tag">24 يناير – التعليم حق… ويصنع المستقبل</div>
 </div>
