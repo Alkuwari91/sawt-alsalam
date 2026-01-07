@@ -2,6 +2,8 @@ import streamlit as st
 from pathlib import Path
 from styles import inject_global_css
 
+# ملاحظة: إذا Home.py فقط هو اللي فيه set_page_config
+# احذفي هذا الجزء من هنا عشان ما يطلع لك Error
 st.set_page_config(
     page_title="حماية التعليم ضد الهجمات | صوت السلام",
     layout="wide",
@@ -10,72 +12,109 @@ st.set_page_config(
 
 inject_global_css()
 
-# ===== Header =====
+# =========================
+# HEADER
+# =========================
 st.markdown(
     """
 <div class="hero">
   <div class="hero-title">حماية التعليم ضد الهجمات</div>
   <div class="hero-sub">صوت السلام | مدرسة آمنة محمود الجيدة</div>
-  <div class="hero-tag">9 – التعليم حق… ويصنع المستقبل</div>
+  <div class="hero-tag">9 سبتمبر</div>
 </div>
 """,
     unsafe_allow_html=True,
 )
 
-# ===== 3 columns =====
-col1, col2, col3 = st.columns(3, gap="large")
+# =========================
+# 2 BIG CARDS (مثل الرؤية والرسالة)
+# =========================
+c2, c1 = st.columns(2, gap="large")
 
-# ===== Card 1: الهدف =====
-with col1:
-    with st.container():
-        st.markdown('<div class="card">', unsafe_allow_html=True)
-        st.markdown('<div class="sec">الهدف من النشاط</div>', unsafe_allow_html=True)
-        st.markdown(
-            '<div class="p">تعزيز قيمة التعليم لدى الطالبات، ورفع الدافعية للتعلّم، وربط التعليم ببناء المستقبل وتنمية المهارات ضمن بيئة مدرسية آمنة وداعمة.</div>',
-            unsafe_allow_html=True,
-        )
-        st.markdown("</div>", unsafe_allow_html=True)
+with c1:  # الهدف (يمين)
+    st.markdown(
+        """
+<div class="big-card-wrap">
+  <div class="big-card-title">الهدف من النشاط</div>
+  <p class="big-card-text">
+    تعزيز وعي الطالبات بأهمية حماية التعليم وحق التعلّم،
+    وترسيخ مفهوم المدرسة الآمنة كبيئة داعمة للتعلّم،
+    وتنمية المسؤولية المجتمعية تجاه حماية المؤسسات التعليمية.
+  </p>
+</div>
+""",
+        unsafe_allow_html=True,
+    )
 
-# ===== Card 2: وصف النشاط =====
-# ===== Card 2: وصف النشاط =====
-with col2:
-    with st.container():
-        st.markdown('<div class="card">', unsafe_allow_html=True)
-        st.markdown('<div class="sec">وصف النشاط</div>', unsafe_allow_html=True)
-        st.markdown(
-            '<div class="p">تنفيذ أنشطة مدرسية احتفالية وتربوية بمناسبة يوم التعليم العالمي، تضمنت مشاركة الطالبات في أنشطة كتابية وفنية تعبّر عن أحلامهن وطموحاتهن ودور التعليم في تحقيقها، وذلك ضمن بيئة مدرسية آمنة وداعمة.</div>',
-            unsafe_allow_html=True,
-        )
-        st.markdown("</div>", unsafe_allow_html=True)
+with c2:  # وصف المشروع (يسار)
+    st.markdown(
+        """
+<div class="big-card-wrap">
+  <div class="big-card-title">وصف المشروع</div>
+  <p class="big-card-text">
+    تنفيذ نشاط توعوي بمناسبة اليوم الدولي لحماية التعليم من الهجمات،
+    تضمّن رسائل تربوية عن حق التعليم وأهمية توفير بيئة مدرسية آمنة،
+    ومشاركة الطالبات في أنشطة صفّية تعزّز مفهوم الأمن والسلام داخل المدرسة.
+  </p>
+</div>
+""",
+        unsafe_allow_html=True,
+    )
 
-
-# ===== Card 3: معرض الصور =====
-with col3:
-    with st.container():
-        st.markdown('<div class="card">', unsafe_allow_html=True)
-        st.markdown('<div class="sec">معرض الصور</div>', unsafe_allow_html=True)
-
-        photos_dir = Path("assets/himayat/photos")
-
-        photos = []
-        if photos_dir.exists():
-            for ext in ("*.png", "*.jpg", "*.jpeg", "*.webp"):
-                photos += list(photos_dir.glob(ext))
-
-        photos = sorted(photos)
-
-        if photos:
-            st.image([str(p) for p in photos], use_container_width=True)
-        else:
-            st.info("مافي صور مضافة بعد داخل assets/himayat/photos")
-
-    
-
-        st.markdown("</div>", unsafe_allow_html=True)
-
-# ===== Back + Footer =====
+# =========================
+# GALLERY تحتهم بالنص
+# =========================
 st.write("")
-if st.button("← العودة إلى الصفحة الرئيسية", key="back_home_yawm", use_container_width=True):
+st.markdown(
+    '<div class="media-grid-title">معرض الصور والفيديوات</div>',
+    unsafe_allow_html=True,
+)
+
+PHOTOS_DIR = Path("assets/himayat/photos")
+VIDEOS_DIR = Path("assets/himayat/videos")
+
+photos = []
+if PHOTOS_DIR.exists():
+    for ext in ("*.png", "*.jpg", "*.jpeg", "*.webp"):
+        photos += list(PHOTOS_DIR.glob(ext))
+photos = sorted(photos)
+
+videos = []
+if VIDEOS_DIR.exists():
+    for ext in ("*.mp4", "*.mov", "*.webm"):
+        videos += list(VIDEOS_DIR.glob(ext))
+videos = sorted(videos)
+
+items = [("photo", p) for p in photos] + [("video", v) for v in videos]
+
+if not items:
+    st.info(
+        "مافي ملفات مضافة بعد.\n\n"
+        "ضعي الصور داخل: assets/himayat/photos\n"
+        "وضعي الفيديوات داخل: assets/himayat/videos"
+    )
+else:
+    cols = st.columns(3, gap="large")
+    for i, (kind, path) in enumerate(items):
+        with cols[i % 3]:
+            st.markdown('<div class="media-card">', unsafe_allow_html=True)
+
+            if kind == "photo":
+                st.image(str(path), use_container_width=True)
+            else:
+                st.video(str(path))
+
+            st.markdown(
+                f'<div class="media-caption">{path.name}</div>',
+                unsafe_allow_html=True,
+            )
+            st.markdown("</div>", unsafe_allow_html=True)
+
+# =========================
+# BACK + FOOTER
+# =========================
+st.write("")
+if st.button("← العودة إلى الصفحة الرئيسية", key="back_home_himayat", use_container_width=True):
     st.switch_page("Home.py")
 
 st.markdown(
