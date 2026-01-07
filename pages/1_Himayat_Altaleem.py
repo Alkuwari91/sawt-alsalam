@@ -64,7 +64,6 @@ with col3:
     with st.container():
         st.markdown('<div class="card">', unsafe_allow_html=True)
         st.markdown('<div class="sec">معرض الصور</div>', unsafe_allow_html=True)
-        st.caption("صور من GitHub داخل: assets/himayat/photos (أو ارفعي صور للعرض المؤقت)")
 
         photos_dir = Path("assets/himayat/photos")
 
