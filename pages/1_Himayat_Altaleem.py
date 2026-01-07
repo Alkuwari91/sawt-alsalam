@@ -81,7 +81,7 @@ photos = sorted(photos)
 
 videos = []
 if VIDEOS_DIR.exists():
-    for ext in ("*.MP4", "*.mov", "*.webm"):
+    for ext in ("*.mp4","*.MP4","*.mov","*.MOV","*.webm","*.WEBM","*.m4v","*.M4V"):
         videos += list(VIDEOS_DIR.glob(ext))
 videos = sorted(videos)
 
