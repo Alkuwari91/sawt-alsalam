@@ -74,4 +74,32 @@ with col3:
         photos = []
         if photos_dir.exists():
             for ext in ("*.png", "*.jpg", "*.jpeg", "*.webp"):
-                photos +=
+                photos += list(photos_dir.glob(ext))
+        photos = sorted(photos)
+
+        if photos:
+            st.image([str(p) for p in photos], use_container_width=True)
+        else:
+            st.info("مافي صور مضافة بعد داخل assets/yawm/photos")
+
+        st.divider()
+        up = st.file_uploader(
+            "رفع صور للعرض (مؤقت)",
+            type=["png", "jpg", "jpeg", "webp"],
+            accept_multiple_files=True,
+            key="yawm_photos_upload",
+        )
+        if up:
+            st.image(up, use_container_width=True)
+
+        st.markdown("</div>", unsafe_allow_html=True)
+
+# ===== Back + Footer =====
+st.write("")
+if st.button("← العودة إلى الصفحة الرئيسية", key="back_home_yawm", use_container_width=True):
+    st.switch_page("Home.py")
+
+st.markdown(
+    '<div class="footer">© صوت السلام – مدرسة آمنة محمود الجيدة</div>',
+    unsafe_allow_html=True,
+)
