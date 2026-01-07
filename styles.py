@@ -81,8 +81,23 @@ div[data-testid="stVerticalBlockBorderWrapper"]{
   padding: 1.6rem 1.6rem;
   position: relative;
   overflow: hidden;
-  min-height: 260px;
+
+  /* 👇 توازن الطول */
+  min-height: 280px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
+.big-card-wrap ul{
+  margin-top: .8rem;
+  padding-right: 1.2rem;
+}
+
+.big-card-wrap li{
+  margin-bottom: .4rem;
+  line-height: 1.8;
+}
+
 .big-card-wrap:after{
   content:"";
   position:absolute;
