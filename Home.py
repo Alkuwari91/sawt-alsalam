@@ -36,34 +36,21 @@ html, body, [class*="css"] {
 }
 
 /* ===== Header ===== */
-.hero{
-    position: relative;
-    background: linear-gradient(135deg, #8A1538, #6E0F2C);
-    color: white;
-    padding: 3.2em 1em 2.6em 1em;  /* ✅ زيادة مساحة فوق عشان الشعارات */
-    text-align: center;
-    margin: -1.5rem -1rem 2.2rem -1rem;
-}
+st.markdown(
+    """
+<div class="hero">
+  <div class="hero-logos">
+    <img src="assets/logos/unesco.png" alt="UNESCO">
+    <img src="assets/logos/moehe_qatar.png" alt="MOEHE Qatar">
+  </div>
 
-/* شريط الشعارات أعلى الهيدر */
-.hero-logos{
-    position: absolute;
-    top: 18px;
-    right: 18px;          /* ✅ RTL: يمين */
-    display: flex;
-    gap: 12px;
-    align-items: center;
-}
-
-/* حجم شكل الشعارات */
-.hero-logos img{
-    height: 56px;
-    width: auto;
-    object-fit: contain;
-    background: rgba(255,255,255,0.92); /* خلفية بيضاء خفيفة عشان يبانون */
-    padding: 6px;
-    border-radius: 12px;
-}
+  <div class="hero-title">صوت السلام</div>
+  <div class="hero-sub">في ظل مدرسة آمنة محمود الجيدة</div>
+  <div class="hero-tag">تعليمٌ آمن… ومستقبلٌ أكثر سلامًا</div>
+</div>
+""",
+    unsafe_allow_html=True,
+)
 
 
 .hero-title {
