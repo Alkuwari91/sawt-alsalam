@@ -20,64 +20,62 @@ st.markdown("""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap');
 
-html, body, [class*="css"] {
-    font-family: 'Cairo', sans-serif;
+html, body, [class*="css"] { font-family: 'Cairo', sans-serif; }
+
+.stApp{
+  background-color:#F9FBFC;
+  color:#333;
+  direction:rtl;
 }
 
-.stApp {
-    background-color: #F9FBFC;
-    color: #333;
-    direction: rtl;
-}
-
-.block-container {
-    padding-top: 1.5rem;
-    max-width: 1100px;
+.block-container{
+  padding-top:1.5rem;
+  max-width:1100px;
 }
 
 /* ===== Header ===== */
-st.markdown(
-    """
-<div class="hero">
-  <div class="hero-logos">
-    <img src="assets/logos/unesco.png" alt="UNESCO">
-    <img src="assets/logos/moehe_qatar.png" alt="MOEHE Qatar">
-  </div>
-
-  <div class="hero-title">صوت السلام</div>
-  <div class="hero-sub">في ظل مدرسة آمنة محمود الجيدة</div>
-  <div class="hero-tag">تعليمٌ آمن...ومستقبلٌ أكثر سلامًا</div>
-</div>
-""",
-    unsafe_allow_html=True,
-)
-
-
-.hero-title {
-    font-size: 2.8em;
-    font-weight: 800;
+.hero{
+  background: linear-gradient(135deg, #8A1538, #6E0F2C);
+  color:white;
+  padding: 2.6em 1em;
+  text-align:center;
+  margin: -1.5rem -1rem 2.2rem -1rem;
+  border-radius: 18px;
+  position: relative;
 }
 
-.hero-sub {
-    font-size: 1.25em;
-    margin-top: 0.4em;
-    opacity: 0.95;
+/* logos row */
+.hero-logos{
+  position:absolute;
+  top:16px;
+  left:16px;      /* اليسار لأن الموقع RTL وبيكون شكلها مرتب */
+  display:flex;
+  gap:10px;
+  align-items:center;
 }
 
-.hero-tag {
-    font-size: 0.95em;
-    margin-top: 0.8em;
-    opacity: 0.85;
+.hero-logos img{
+  height:42px;
+  width:auto;
+  background: rgba(255,255,255,0.92);
+  padding:6px 10px;
+  border-radius:10px;
 }
+
+/* text */
+.hero-title{ font-size:2.8em; font-weight:800; }
+.hero-sub{ font-size:1.25em; margin-top:0.4em; opacity:0.95; }
+.hero-tag{ font-size:0.95em; margin-top:0.8em; opacity:0.85; }
 
 /* ===== Section title ===== */
-.section-title {
-    color: #8A1538;
-    text-align: center;
-    font-size: 1.9em;
-    font-weight: 800;
-    margin-bottom: 1.4em;
+.section-title{
+  color:#8A1538;
+  text-align:center;
+  font-size:1.9em;
+  font-weight:800;
+  margin-bottom:1.4em;
 }
+
 
 /* ===== Cards ===== */
 .card {
