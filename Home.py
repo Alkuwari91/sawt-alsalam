@@ -46,7 +46,7 @@ st.markdown(
 
   <div class="hero-title">صوت السلام</div>
   <div class="hero-sub">في ظل مدرسة آمنة محمود الجيدة</div>
-  <div class="hero-tag">تعليمٌ آمن… ومستقبلٌ أكثر سلامًا</div>
+  <div class="hero-tag">تعليمٌ آمن...ومستقبلٌ أكثر سلامًا</div>
 </div>
 """,
     unsafe_allow_html=True,
