@@ -53,7 +53,14 @@ html, body, [class*="css"] { font-family: 'Cairo', sans-serif; }
   padding: 3em 1.5em;
   margin: -1.5rem -1rem 2.5rem -1rem;
   border-radius: 22px;
+  position: relative;
+  overflow: hidden;
 }
+
+.hero img{
+  display:block;
+}
+
 
 .hero-text{
   text-align:center;
