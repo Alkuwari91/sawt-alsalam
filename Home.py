@@ -6,22 +6,9 @@ st.set_page_config(
     layout="wide",
     initial_sidebar_state="collapsed",
 )
-import base64
-from pathlib import Path
-
-def img_to_data_uri(path: str) -> str:
-    p = Path(path)
-    data = p.read_bytes()
-    b64 = base64.b64encode(data).decode("utf-8")
-    ext = p.suffix.lower().replace(".", "")
-    mime = "png" if ext == "png" else ext
-    return f"data:image/{mime};base64,{b64}"
 
 inject_global_css()
 
-# =========================
-# PAGE CONFIG
-# =========================
 
 # =========================
 # GLOBAL CSS (RASEKHON STYLE)
