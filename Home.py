@@ -1,13 +1,17 @@
 import streamlit as st
 from styles import inject_global_css
+from pathlib import Path
+import base64
 
-st.set_page_config(
-    page_title="صوت السلام | مدرسة آمنة محمود الجيدة",
-    layout="wide",
-    initial_sidebar_state="collapsed",
-)
+# مسار مجلد الشعارات
+LOGOS_DIR = Path(__file__).parent / "assets" / "logos"
 
-inject_global_css()
+def img_to_data_uri(p: Path) -> str:
+    data = p.read_bytes()
+    ext = p.suffix.lower().replace(".", "")
+    if ext == "jpg":
+        ext = "jpeg"
+    return f"data:image/{ext};base64,{base64.b64encode(data).decode('utf-8')}"
 
 
 # =========================
