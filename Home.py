@@ -21,7 +21,9 @@ st.markdown("""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap');
 
-html, body, [class*="css"] { font-family: 'Cairo', sans-serif; }
+html, body, [class*="css"] { 
+  font-family: 'Cairo', sans-serif; 
+}
 
 .stApp{
   background-color:#F9FBFC;
@@ -38,37 +40,33 @@ html, body, [class*="css"] { font-family: 'Cairo', sans-serif; }
 .hero{
   background: linear-gradient(135deg, #8A1538, #6E0F2C);
   color:white;
-  padding: 2.6em 1em;
+  padding: 4.2em 1em 2.6em;
   text-align:center;
   margin: -1.5rem -1rem 2.2rem -1rem;
   border-radius: 18px;
   position: relative;
+  overflow: visible;
 }
 
-/* logos row */
 /* logos (يمين + يسار) */
 .hero-logo-right,
 .hero-logo-left{
   position:absolute;
-  top:16px;
-  z-index: 10;
+  top:22px;
+  z-index: 9999;
 }
 
-.hero-logo-right{
-  right:16px;
-}
-
-.hero-logo-left{
-  left:16px;
-}
+.hero-logo-right{ right:16px; }
+.hero-logo-left{ left:16px; }
 
 .hero-logo-right img,
 .hero-logo-left img{
-  height:42px;
+  height:52px;
   width:auto;
   background: rgba(255,255,255,0.92);
-  padding:6px 10px;
-  border-radius:10px;
+  padding:8px 12px;
+  border-radius:12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.18);
 }
 
 /* text */
@@ -85,70 +83,18 @@ html, body, [class*="css"] { font-family: 'Cairo', sans-serif; }
   margin-bottom:1.4em;
 }
 
-
-/* ===== Cards ===== */
-.card {
-    background: #ffffff;
-    border-radius: 16px;
-    padding: 1.7em;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.06);
-    transition: transform 0.3s, box-shadow 0.3s;
-    height: 100%;
-    border: 1px solid #f0f0f0;
-}
-
-.card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 28px rgba(138,21,56,0.25);
-}
-
-.card h3 {
-    color: #8A1538;
-    font-size: 1.18em;
-    font-weight: 800;
-}
-
-.card .date {
-    font-size: 0.9em;
-    color: #607d8b;
-    margin-bottom: 0.8em;
-}
-
-.card p {
-    font-size: 0.95em;
-    line-height: 1.7;
-}
-
-/* ===== Vision & Mission ===== */
-.vm-box {
-    background: white;
-    border-radius: 16px;
-    padding: 1.7em;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.06);
-    border-right: 4px solid #8A1538;
-}
-
-.vm-box h4 {
-    color: #8A1538;
-    font-size: 1.45em;
-    font-weight: 800;
-}
-
-.vm-box p {
-    line-height: 1.9;
-}
-
 /* ===== Footer ===== */
 .footer {
-    background-color: #6E0F2C;
-    color: white;
-    text-align: center;
-    padding: 1.2em;
-    border-radius: 14px;
-    margin-top: 3em;
+  background-color: #6E0F2C;
+  color: white;
+  text-align: center;
+  padding: 1.2em;
+  border-radius: 14px;
+  margin-top: 3em;
 }
 </style>
 """, unsafe_allow_html=True)
+
 
 unesco_src = img_to_data_uri(LOGOS_DIR / "UNESCO.png")
 moehe_src  = img_to_data_uri(LOGOS_DIR / "moehe_qatar.png")
