@@ -154,6 +154,11 @@ html, body, [class*="css"] { font-family: 'Cairo', sans-serif; }
 # =========================
 st.markdown(
     """
+<div class="hero">
+  <div class="hero-logos">
+    <img src="assets/logos/unesco.png" alt="UNESCO">
+    <img src="assets/logos/moehe_qatar.png" alt="MOEHE Qatar">
+  </div>
 
   <div class="hero-title">صوت السلام</div>
   <div class="hero-sub">في ظل مدرسة آمنة محمود الجيدة</div>
