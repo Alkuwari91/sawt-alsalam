@@ -6,6 +6,16 @@ st.set_page_config(
     layout="wide",
     initial_sidebar_state="collapsed",
 )
+import base64
+from pathlib import Path
+
+def img_to_data_uri(path: str) -> str:
+    p = Path(path)
+    data = p.read_bytes()
+    b64 = base64.b64encode(data).decode("utf-8")
+    ext = p.suffix.lower().replace(".", "")
+    mime = "png" if ext == "png" else ext
+    return f"data:image/{mime};base64,{b64}"
 
 inject_global_css()
 
@@ -149,15 +159,18 @@ html, body, [class*="css"] { font-family: 'Cairo', sans-serif; }
 </style>
 """, unsafe_allow_html=True)
 
+moehe_src = img_to_data_uri("assets/logos/moehe_qatar.png")
+unesco_src = img_to_data_uri("assets/logos/unesco.png")
 
-# HEADER
-# =========================
 st.markdown(
-    """
+    f"""
 <div class="hero">
-  <div class="hero-logos">
-    <img src="assets/logos/unesco.png" alt="UNESCO">
-    <img src="assets/logos/moehe_qatar.png" alt="MOEHE Qatar">
+  <div class="hero-logo-right">
+    <img src="{moehe_src}" alt="وزارة التربية والتعليم">
+  </div>
+
+  <div class="hero-logo-left">
+    <img src="{unesco_src}" alt="UNESCO">
   </div>
 
   <div class="hero-title">صوت السلام</div>
@@ -167,6 +180,7 @@ st.markdown(
 """,
     unsafe_allow_html=True,
 )
+
 
 
 
