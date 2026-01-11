@@ -146,14 +146,14 @@ html, body, [class*="css"] { font-family: 'Cairo', sans-serif; }
 </style>
 """, unsafe_allow_html=True)
 
-moehe_src = img_to_data_uri("assets/logos/moehe_qatar.png")
-unesco_src = img_to_data_uri("assets/logos/unesco.png")
+unesco_src = img_to_data_uri(LOGOS_DIR / "UNESCO.png")
+moehe_src  = img_to_data_uri(LOGOS_DIR / "moehe_qatar.png")
 
 st.markdown(
     f"""
 <div class="hero">
   <div class="hero-logo-right">
-    <img src="{moehe_src}" alt="وزارة التربية والتعليم">
+    <img src="{moehe_src}" alt="وزارة التربية والتعليم والتعليم العالي">
   </div>
 
   <div class="hero-logo-left">
@@ -167,10 +167,6 @@ st.markdown(
 """,
     unsafe_allow_html=True,
 )
-
-
-
-
 
 # =========================
 # VISION & MISSION (UNESCO)
