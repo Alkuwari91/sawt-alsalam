@@ -35,15 +35,58 @@ html, body, [class*="css"] { font-family: 'Cairo', sans-serif; }
 }
 
 /* ===== Header ===== */
-.hero{
+.hero-grid{
+  display:grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  align-items:center;
   background: linear-gradient(135deg, #8A1538, #6E0F2C);
   color:white;
-  padding: 4.8em 1em 2.8em;   /* زدنا المسافة فوق */
-  text-align:center;
-  margin: 0 -1rem 2.2rem -1rem;  /* ألغينا السحب للأعلى */
+  padding: 2em 1.5em;
+  margin: -1.5rem -1rem 2.2rem -1rem;
   border-radius: 18px;
-  position: relative;
 }
+
+.hero-text{
+  text-align:center;
+}
+
+.hero-title{
+  font-size:2.6em;
+  font-weight:800;
+}
+
+.hero-sub{
+  font-size:1.15em;
+  margin-top:0.4em;
+  opacity:0.95;
+}
+
+.hero-tag{
+  font-size:0.95em;
+  margin-top:0.6em;
+  opacity:0.85;
+}
+
+.hero-logo{
+  display:flex;
+  align-items:center;
+}
+
+.hero-logo.right{
+  justify-content:flex-start;
+}
+
+.hero-logo.left{
+  justify-content:flex-end;
+}
+
+.hero-logo img{
+  height:64px;
+  background: rgba(255,255,255,0.95);
+  padding:10px 14px;
+  border-radius:14px;
+}
+
 
 
 /* logos (يمين + يسار) */
