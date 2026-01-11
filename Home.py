@@ -183,28 +183,36 @@ html, body, [class*="css"] { font-family: 'Cairo', sans-serif; }
 unesco_src = img_to_data_uri(LOGOS_DIR / "UNESCO.png")
 moehe_src  = img_to_data_uri(LOGOS_DIR / "moehe_qatar.png")
 
-st.markdown(
-    """
-<div class="hero-grid">
+left, center, right = st.columns([1, 2, 1])
 
-  <div class="hero-logo right">
-    <img src="assets/logos/moehe_qatar.png" alt="وزارة التربية والتعليم والتعليم العالي">
-  </div>
+with left:
+    st.image(
+        "assets/logos/UNESCO.png",
+        width=120
+    )
 
-  <div class="hero-text">
-    <div class="hero-title">صوت السلام</div>
-    <div class="hero-sub">في ظل مدرسة آمنة محمود الجيدة</div>
-    <div class="hero-tag">تعليمٌ آمن... ومستقبلٌ أكثر سلامًا</div>
-  </div>
+with center:
+    st.markdown(
+        """
+        <div style="text-align:center;">
+            <h1 style="margin-bottom:0;">صوت السلام</h1>
+            <p style="font-size:1.1em;margin:0.4em 0;">
+                في ظل مدرسة آمنة محمود الجيدة
+            </p>
+            <p style="opacity:0.85;">
+                تعليمٌ آمن... ومستقبلٌ أكثر سلامًا
+            </p>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
 
-  <div class="hero-logo left">
-    <img src="assets/logos/UNESCO.png" alt="UNESCO">
-  </div>
+with right:
+    st.image(
+        "assets/logos/moehe_qatar.png",
+        width=120
+    )
 
-</div>
-""",
-    unsafe_allow_html=True,
-)
 
 # =========================
 # VISION & MISSION (UNESCO)
