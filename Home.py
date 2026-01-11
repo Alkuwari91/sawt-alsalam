@@ -45,16 +45,24 @@ html, body, [class*="css"] { font-family: 'Cairo', sans-serif; }
 }
 
 /* logos row */
-.hero-logos{
+/* logos (يمين + يسار) */
+.hero-logo-right,
+.hero-logo-left{
   position:absolute;
   top:16px;
-  left:16px;      /* اليسار لأن الموقع RTL وبيكون شكلها مرتب */
-  display:flex;
-  gap:10px;
-  align-items:center;
+  z-index: 10;
 }
 
-.hero-logos img{
+.hero-logo-right{
+  right:16px;
+}
+
+.hero-logo-left{
+  left:16px;
+}
+
+.hero-logo-right img,
+.hero-logo-left img{
   height:42px;
   width:auto;
   background: rgba(255,255,255,0.92);
@@ -142,16 +150,10 @@ html, body, [class*="css"] { font-family: 'Cairo', sans-serif; }
 """, unsafe_allow_html=True)
 
 
-# =========================
 # HEADER
 # =========================
 st.markdown(
     """
-<div class="hero">
-  <div class="hero-logos">
-    <img src="assets/logos/unesco.png" alt="UNESCO">
-    <img src="assets/logos/moehe_qatar.png" alt="MOEHE Qatar">
-  </div>
 
   <div class="hero-title">صوت السلام</div>
   <div class="hero-sub">في ظل مدرسة آمنة محمود الجيدة</div>
