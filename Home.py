@@ -50,16 +50,37 @@ html, body, [class*="css"] { font-family: 'Cairo', sans-serif; }
 .hero{
   background: linear-gradient(135deg, #8A1538, #6E0F2C);
   color:white;
-  padding: 2.2em 1.6em;
-  margin: -1.5rem -1rem 2.2rem -1rem;
-  border-radius: 18px;
+  padding: 3em 1.5em;
+  margin: -1.5rem -1rem 2.5rem -1rem;
+  border-radius: 22px;
+  position: relative;
+  overflow: hidden;
 }
 
-.hero-inner{
-  display:grid;
-  grid-template-columns: 1fr 3fr 1fr;
-  align-items:center;
-  gap: 18px;
+.hero img{
+  display:block;
+}
+
+
+.hero-text{
+  text-align:center;
+}
+
+.hero-title{
+  font-size:2.6em;
+  font-weight:800;
+}
+
+.hero-sub{
+  font-size:1.15em;
+  margin-top:0.4em;
+  opacity:0.95;
+}
+
+.hero-tag{
+  font-size:0.95em;
+  margin-top:0.6em;
+  opacity:0.85;
 }
 
 .hero-logo{
@@ -67,23 +88,20 @@ html, body, [class*="css"] { font-family: 'Cairo', sans-serif; }
   align-items:center;
 }
 
-.hero-logo.right{ justify-content:flex-start; } /* داخل RTL: هذا يظهر يمين داخل البوكس */
-.hero-logo.left{ justify-content:flex-end; }    /* داخل RTL: هذا يظهر يسار داخل البوكس */
-
-.hero-logo img{
-  height: 64px;          /* كبّري/صغّري حسب ذوقك */
-  width: auto;
-  background: rgba(255,255,255,0.95);
-  padding: 10px 14px;
-  border-radius: 14px;
-  box-shadow: 0 10px 22px rgba(0,0,0,0.18);
+.hero-logo.right{
+  justify-content:flex-start;
 }
 
-.hero-text{ text-align:center; }
-.hero-title{ font-size:2.7em; font-weight:800; margin:0; }
-.hero-sub{ font-size:1.2em; margin-top:0.5em; opacity:0.95; }
-.hero-tag{ font-size:1.0em; margin-top:0.7em; opacity:0.85; }
+.hero-logo.left{
+  justify-content:flex-end;
+}
 
+.hero-logo img{
+  height:64px;
+  background: rgba(255,255,255,0.95);
+  padding:10px 14px;
+  border-radius:14px;
+}
 
 
 
@@ -178,47 +196,43 @@ html, body, [class*="css"] { font-family: 'Cairo', sans-serif; }
 </style>
 """, unsafe_allow_html=True)
 
-from pathlib import Path
-import base64
-
-LOGOS_DIR = Path(__file__).parent / "assets" / "logos"
-
-def img_to_data_uri(p: Path) -> str:
-    data = p.read_bytes()
-    ext = p.suffix.lower().replace(".", "")
-    if ext == "jpg":
-        ext = "jpeg"
-    return f"data:image/{ext};base64,{base64.b64encode(data).decode('utf-8')}"
-
-
 unesco_src = img_to_data_uri(LOGOS_DIR / "UNESCO.png")
 moehe_src  = img_to_data_uri(LOGOS_DIR / "moehe_qatar.png")
 
-st.markdown(
-    f"""
-<div class="hero">
-  <div class="hero-inner">
-    
-    <div class="hero-logo right">
-      <img src="{moehe_src}" alt="وزارة التربية والتعليم والتعليم العالي">
-    </div>
+st.markdown('<div class="hero">', unsafe_allow_html=True)
 
-    <div class="hero-text">
-      <div class="hero-title">صوت السلام</div>
-      <div class="hero-sub">في ظل مدرسة آمنة محمود الجيدة</div>
-      <div class="hero-tag">تعليمٌ آمن... ومستقبلٌ أكثر سلامًا</div>
-    </div>
+left, center, right = st.columns([1.2, 3.6, 1.2])
 
-    <div class="hero-logo left">
-      <img src="{unesco_src}" alt="UNESCO">
-    </div>
+with left:
+    # UNESCO (يسار)
+    st.image("assets/logos/UNESCO.png", width=140)
 
-  </div>
-</div>
-""",
-    unsafe_allow_html=True,
-)
+with center:
+    st.markdown(
+        """
+        <div style="text-align:center;">
+            <div style="font-size:3.0em;font-weight:800;line-height:1.2;margin-top:0.2em;">
+                صوت السلام
+            </div>
+            <div style="font-size:1.25em;opacity:0.95;margin-top:0.6em;">
+                في ظل مدرسة آمنة محمود الجيدة
+            </div>
+            <div style="font-size:1.05em;opacity:0.85;margin-top:0.8em;">
+                تعليمٌ آمن... ومستقبلٌ أكثر سلامًا
+            </div>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
 
+with right:
+    # MOEHE (يمين)
+    st.image("assets/logos/moehe_qatar.png", width=170)
+
+st.markdown('</div>', unsafe_allow_html=True)
+
+
+st.markdown('</div>', unsafe_allow_html=True)
 
 
 # =========================
