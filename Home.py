@@ -38,12 +38,13 @@ html, body, [class*="css"] { font-family: 'Cairo', sans-serif; }
 .hero{
   background: linear-gradient(135deg, #8A1538, #6E0F2C);
   color:white;
-  padding: 2.6em 1em;
+  padding: 4.8em 1em 2.8em;   /* زدنا المسافة فوق */
   text-align:center;
-  margin: -1.5rem -1rem 2.2rem -1rem;
+  margin: 0 -1rem 2.2rem -1rem;  /* ألغينا السحب للأعلى */
   border-radius: 18px;
   position: relative;
 }
+
 
 /* logos (يمين + يسار) */
 .hero-logo-right,
