@@ -45,30 +45,25 @@ html, body, [class*="css"] { font-family: 'Cairo', sans-serif; }
   position: relative;
 }
 
-/* logos row */
 /* logos (يمين + يسار) */
 .hero-logo-right,
 .hero-logo-left{
   position:absolute;
-  top:16px;
-  z-index: 10;
+  top:22px;
+  z-index: 9999;
 }
 
-.hero-logo-right{
-  right:16px;
-}
-
-.hero-logo-left{
-  left:16px;
-}
+.hero-logo-right{ right:16px; }
+.hero-logo-left{ left:16px; }
 
 .hero-logo-right img,
 .hero-logo-left img{
-  height:42px;
+  height:52px;
   width:auto;
   background: rgba(255,255,255,0.92);
-  padding:6px 10px;
-  border-radius:10px;
+  padding:8px 12px;
+  border-radius:12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.18);
 }
 
 /* text */
