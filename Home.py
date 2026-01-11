@@ -201,29 +201,35 @@ moehe_src  = img_to_data_uri(LOGOS_DIR / "moehe_qatar.png")
 
 st.markdown('<div class="hero">', unsafe_allow_html=True)
 
-l, c, r = st.columns([1, 3, 1])
+left, center, right = st.columns([1.2, 3.6, 1.2])
 
-with l:
-    st.image(
-        "assets/logos/UNESCO.png",
-        width=120
-    )
+with left:
+    # UNESCO (يسار)
+    st.image("assets/logos/UNESCO.png", width=140)
 
-with c:
+with center:
     st.markdown(
         """
         <div style="text-align:center;">
-            <h1 style="margin-bottom:0;">صوت السلام</h1>
-            <p style="font-size:1.15em;margin:0.4em 0;">
+            <div style="font-size:3.0em;font-weight:800;line-height:1.2;margin-top:0.2em;">
+                صوت السلام
+            </div>
+            <div style="font-size:1.25em;opacity:0.95;margin-top:0.6em;">
                 في ظل مدرسة آمنة محمود الجيدة
-            </p>
-            <p style="opacity:0.85;">
+            </div>
+            <div style="font-size:1.05em;opacity:0.85;margin-top:0.8em;">
                 تعليمٌ آمن... ومستقبلٌ أكثر سلامًا
-            </p>
+            </div>
         </div>
         """,
         unsafe_allow_html=True,
     )
+
+with right:
+    # MOEHE (يمين)
+    st.image("assets/logos/moehe_qatar.png", width=170)
+
+st.markdown('</div>', unsafe_allow_html=True)
 
 with r:
     st.image(
