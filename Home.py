@@ -153,24 +153,39 @@ html, body, [class*="css"] { font-family: 'Cairo', sans-serif; }
 unesco_src = img_to_data_uri(LOGOS_DIR / "UNESCO.png")
 moehe_src  = img_to_data_uri(LOGOS_DIR / "moehe_qatar.png")
 
-st.markdown(
-    f"""
-<div class="hero">
-  <div class="hero-logo-right">
-    <img src="{moehe_src}" alt="وزارة التربية والتعليم والتعليم العالي">
-  </div>
+/* ===== Header ===== */
+.hero{
+  background: linear-gradient(135deg, #8A1538, #6E0F2C);
+  color:white;
+  padding: 4.2em 1em 2.6em;   /* ✅ زدنا البادينق من فوق عشان اللوقوات تبين */
+  text-align:center;
+  margin: -1.5rem -1rem 2.2rem -1rem;
+  border-radius: 18px;
+  position: relative;
+  overflow: visible;
+}
 
-  <div class="hero-logo-left">
-    <img src="{unesco_src}" alt="UNESCO">
-  </div>
+/* logos (يمين + يسار) */
+.hero-logo-right,
+.hero-logo-left{
+  position:absolute;
+  top:22px;                 /* ✅ نزلناهم شوي تحت بعيد عن شريط Streamlit */
+  z-index: 9999;            /* ✅ فوق أي عنصر */
+}
 
-  <div class="hero-title">صوت السلام</div>
-  <div class="hero-sub">في ظل مدرسة آمنة محمود الجيدة</div>
-  <div class="hero-tag">تعليمٌ آمن... ومستقبلٌ أكثر سلامًا</div>
-</div>
-""",
-    unsafe_allow_html=True,
-)
+.hero-logo-right{ right:16px; }
+.hero-logo-left{ left:16px; }
+
+.hero-logo-right img,
+.hero-logo-left img{
+  height:52px;              /* ✅ كبرناهم شوي */
+  width:auto;
+  background: rgba(255,255,255,0.92);
+  padding:8px 12px;
+  border-radius:12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.18);
+}
+
 
 # =========================
 # VISION & MISSION (UNESCO)
@@ -267,6 +282,7 @@ with c3:
 st.markdown(
     """
 <div class="footer">
+    
     © صوت السلام – مدرسة آمنة محمود الجيدة
 </div>
 """,
