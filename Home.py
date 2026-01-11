@@ -47,15 +47,6 @@ html, body, [class*="css"] { font-family: 'Cairo', sans-serif; }
 
 
 /* logos (يمين + يسار) */
-.hero-logo-right,
-.hero-logo-left{
-  position:absolute;
-  top:22px;
-  z-index: 9999;
-}
-
-.hero-logo-right{ right:16px; }
-.hero-logo-left{ left:16px; }
 
 .hero-logo-right img,
 .hero-logo-left img{
@@ -150,19 +141,23 @@ unesco_src = img_to_data_uri(LOGOS_DIR / "UNESCO.png")
 moehe_src  = img_to_data_uri(LOGOS_DIR / "moehe_qatar.png")
 
 st.markdown(
-    f"""
-<div class="hero">
-  <div class="hero-logo-right">
-    <img src="{moehe_src}" alt="وزارة التربية والتعليم والتعليم العالي">
+    """
+<div class="hero-grid">
+
+  <div class="hero-logo right">
+    <img src="assets/logos/moehe_qatar.png" alt="وزارة التربية والتعليم والتعليم العالي">
   </div>
 
-  <div class="hero-logo-left">
-    <img src="{unesco_src}" alt="UNESCO">
+  <div class="hero-text">
+    <div class="hero-title">صوت السلام</div>
+    <div class="hero-sub">في ظل مدرسة آمنة محمود الجيدة</div>
+    <div class="hero-tag">تعليمٌ آمن... ومستقبلٌ أكثر سلامًا</div>
   </div>
 
-  <div class="hero-title">صوت السلام</div>
-  <div class="hero-sub">في ظل مدرسة آمنة محمود الجيدة</div>
-  <div class="hero-tag">تعليمٌ آمن... ومستقبلٌ أكثر سلامًا</div>
+  <div class="hero-logo left">
+    <img src="assets/logos/UNESCO.png" alt="UNESCO">
+  </div>
+
 </div>
 """,
     unsafe_allow_html=True,
