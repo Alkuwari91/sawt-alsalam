@@ -183,20 +183,22 @@ html, body, [class*="css"] { font-family: 'Cairo', sans-serif; }
 unesco_src = img_to_data_uri(LOGOS_DIR / "UNESCO.png")
 moehe_src  = img_to_data_uri(LOGOS_DIR / "moehe_qatar.png")
 
-left, center, right = st.columns([1, 2, 1])
+st.markdown('<div class="hero">', unsafe_allow_html=True)
 
-with left:
+l, c, r = st.columns([1, 3, 1])
+
+with l:
     st.image(
         "assets/logos/UNESCO.png",
         width=120
     )
 
-with center:
+with c:
     st.markdown(
         """
         <div style="text-align:center;">
             <h1 style="margin-bottom:0;">صوت السلام</h1>
-            <p style="font-size:1.1em;margin:0.4em 0;">
+            <p style="font-size:1.15em;margin:0.4em 0;">
                 في ظل مدرسة آمنة محمود الجيدة
             </p>
             <p style="opacity:0.85;">
@@ -207,11 +209,13 @@ with center:
         unsafe_allow_html=True,
     )
 
-with right:
+with r:
     st.image(
         "assets/logos/moehe_qatar.png",
         width=120
     )
+
+st.markdown('</div>', unsafe_allow_html=True)
 
 
 # =========================
