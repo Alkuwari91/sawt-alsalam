@@ -231,11 +231,6 @@ with right:
 
 st.markdown('</div>', unsafe_allow_html=True)
 
-with r:
-    st.image(
-        "assets/logos/moehe_qatar.png",
-        width=120
-    )
 
 st.markdown('</div>', unsafe_allow_html=True)
 
