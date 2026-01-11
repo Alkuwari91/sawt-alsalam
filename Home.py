@@ -267,7 +267,6 @@ with c3:
 st.markdown(
     """
 <div class="footer">
-    
     © صوت السلام – مدرسة آمنة محمود الجيدة
 </div>
 """,
