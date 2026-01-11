@@ -46,6 +46,15 @@ html, body, [class*="css"] { font-family: 'Cairo', sans-serif; }
   border-radius: 18px;
 }
 
+/* ===== Hero Header ===== */
+.hero{
+  background: linear-gradient(135deg, #8A1538, #6E0F2C);
+  color:white;
+  padding: 3em 1.5em;
+  margin: -1.5rem -1rem 2.5rem -1rem;
+  border-radius: 22px;
+}
+
 .hero-text{
   text-align:center;
 }
